@@ -10,11 +10,19 @@
   <div class="overlay">
     <div class="login-container">
       <img src="Logo.jpg" alt="Logo La Salle Oaxaca" class="logo" />
-      <form class="login-form" action="bienvenido.html" method="get">
-      <input type="text" placeholder="Usuario" name="usuario" required />
-      <input type="password" placeholder="Contraseña" name="contraseña" required />
+      <form class="login-form" onsubmit="guardarUsuario(event)">
+      <input type="text" placeholder="Usuario" id="usuario" required />
+      <input type="password" placeholder="Contraseña" id="contraseña" required />
       <button type="submit">Iniciar Sesión</button>
     </form>
+      <script>
+        function guardarUsuario(event) {
+        event.preventDefault(); // evita que recargue la página
+        const nombre = document.getElementById("usuario").value;
+        localStorage.setItem("usuario", nombre);
+        window.location.href = "bienvenido.html";
+      }
+    </script>
     </div>
   </div>
 </body>
