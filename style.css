@@ -1,31 +1,56 @@
 /* style.css */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000000;
-  color: #ffffff;
-  text-align: center;
-  padding: 50px;
+body, html {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('abstract-dynamic-blue-background-free-vector.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* oscurecer ligeramente el fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-p {
-  font-size: 1.2rem;
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+}
+
+.logo {
+  max-width: 200px;
+  margin-bottom: 30px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
   margin: 10px 0;
-  color: #dddddd;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-a {
-  color: #4fc3f7;
-  text-decoration: none;
-  font-weight: bold;
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0033a0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-a:hover {
-  text-decoration: underline;
+.login-form button:hover {
+  background-color: #001f5c;
 }
