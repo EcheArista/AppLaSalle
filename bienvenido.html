@@ -18,6 +18,11 @@
   </style>
 </head>
 <body>
-  <h1>Hola usuario</h1>
+  <h1 id="saludo">Hola usuario</h1>
+
+  <script>
+    const nombre = localStorage.getItem("usuario") || "usuario";
+    document.getElementById("saludo").textContent = "Hola " + nombre;
+  </script>
 </body>
 </html>
