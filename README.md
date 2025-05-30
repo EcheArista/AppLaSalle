@@ -69,7 +69,7 @@ La API estará disponible en:
 
 ## 🧪 Pruebas
 
-- Usa el usuario `eddie` y contraseña `1234` para iniciar sesión
+- Usa el usuario `eddie` y contraseña `2404` para iniciar sesión
 - Si el login es correcto, te redirige a `bienvenido.html` y muestra tu nombre
 - Si falla, se muestra un mensaje de error
 
