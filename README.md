@@ -89,7 +89,7 @@ node index.js
 ```json
 {
   "usuario": "eddie",
-  "contraseña": "1234"
+  "contraseña": "2404"
 }
 ```
 
