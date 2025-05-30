@@ -4,9 +4,9 @@
 Este proyecto es una app web de autenticación básica construida con:
 
 - **Frontend**: HTML, CSS y JavaScript puro (hosteado en GitHub Pages)
-- **Backend**: Node.js + Express
-- **Base de Datos**: MySQL (local)
-- **Pruebas locales**: Live Server + API en localhost
+- **Backend**: Node.js + Express (desplegado en Render)
+- **Base de Datos**: MySQL (Railway)
+- **Pruebas locales**: Live Server + Postman
 
 ---
 
@@ -24,7 +24,7 @@ mi-proyecto/
 │   ├── db.js
 │   ├── routes/
 │   │   └── auth.js
-│   ├── .env
+│   ├── .env.example
 │   └── package.json
 ```
 
@@ -39,14 +39,15 @@ cd backend
 npm install
 ```
 
-### 2. Crear `.env` con las variables necesarias
+### 2. Crear `.env` con variables:
 
 ```env
 PORT=3000
-DB_HOST=localhost
+DB_HOST=hopper.proxy.rlwy.net
+DB_PORT=54258
 DB_USER=root
-DB_PASSWORD=tu_clave
-DB_NAME=nombre_base
+DB_PASSWORD=********
+DB_NAME=railway
 ```
 
 ### 3. Iniciar el servidor backend
@@ -55,39 +56,67 @@ DB_NAME=nombre_base
 node index.js
 ```
 
-La API estará disponible en:  
-[http://localhost:3000/api/login](http://localhost:3000/api/login)
-
 ### 4. Ejecutar frontend con Live Server
 
-- Abre la carpeta `frontend` en VS Code
-- Haz clic derecho sobre `index.html` > **Open with Live Server**
-- Abre en el navegador:  
-  [http://127.0.0.1:5500/index.html](http://127.0.0.1:5500/index.html)
+- Abrir `index.html` con Live Server en VS Code
+- Navegar a: `http://127.0.0.1:5500/index.html`
 
 ---
 
-## 🧪 Pruebas
+## ☁️ Despliegue en la nube
 
-- Usa el usuario `eddie` y contraseña `2404` para iniciar sesión
-- Si el login es correcto, te redirige a `bienvenido.html` y muestra tu nombre
-- Si falla, se muestra un mensaje de error
+### 🔹 Frontend
+
+- Subido a GitHub Pages
+
+### 🔹 Backend
+
+- Subido a Render:  
+  [https://applasalle.onrender.com](https://applasalle.onrender.com)
+
+### 🔹 Base de datos
+
+- MySQL hospedado en Railway
+- Conexión vía host público y puerto dinámico
+- Acepta queries desde Render
+
+---
+
+## 🧪 Endpoints de prueba
+
+### `POST /api/login`
+
+```json
+{
+  "usuario": "eddie",
+  "contraseña": "1234"
+}
+```
+
+**Respuesta esperada:**
+
+```json
+{
+  "mensaje": "Acceso concedido",
+  "usuario": "eddie"
+}
+```
 
 ---
 
 ## 🔐 Seguridad básica implementada
 
 - Comunicación por JSON
-- Control de errores
-- Separación frontend/backend
-- Uso de `.env` para proteger credenciales
+- Separación de frontend y backend
+- Variables de entorno
+- Validación básica en servidor
 
 ---
 
-## 🌐 Próximos pasos
+## 🌱 Próximos pasos
 
-- [ ] Encriptar contraseñas (`bcrypt`)
-- [ ] Autenticación con tokens JWT
-- [ ] Despliegue en la nube (Render + GitHub Pages)
-- [ ] Panel de usuario con datos personalizados
-- [ ] CRUD de usuarios (crear, modificar, eliminar)
+- [ ] Encriptar contraseñas con bcrypt
+- [ ] Autenticación JWT
+- [ ] Crear dashboard personalizado
+- [ ] Manejar sesiones y logout
+- [ ] CRUD de usuarios
