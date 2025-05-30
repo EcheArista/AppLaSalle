@@ -10,19 +10,45 @@
   <div class="overlay">
     <div class="login-container">
       <img src="Logo.jpg" alt="Logo La Salle Oaxaca" class="logo" />
-      <form class="login-form" onsubmit="guardarUsuario(event)">
-      <input type="text" placeholder="Usuario" id="usuario" required />
-      <input type="password" placeholder="Contraseña" id="contraseña" required />
-      <button type="submit">Iniciar Sesión</button>
-    </form>
-      <script>
-        function guardarUsuario(event) {
-        event.preventDefault(); // evita que recargue la página
-        const nombre = document.getElementById("usuario").value;
-        localStorage.setItem("usuario", nombre);
-        window.location.href = "bienvenido.html";
+      <form class="login-form" onsubmit="iniciarSesion(event)">
+  <input type="text" placeholder="Usuario" id="usuario" required />
+  <input type="password" placeholder="Contraseña" id="contraseña" required />
+  <button type="submit">Iniciar Sesión</button>
+  <p id="error" style="color: red; display: none;"></p>
+</form>
+
+<script>
+  async function iniciarSesion(event) {
+    event.preventDefault();
+
+    const usuario = document.getElementById('usuario').value;
+    const contraseña = document.getElementById('contraseña').value;
+    const errorMsg = document.getElementById('error');
+
+    try {
+      const response = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ usuario, contraseña })
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.mensaje || 'Error al iniciar sesión');
       }
-    </script>
+
+      const data = await response.json();
+      localStorage.setItem('usuario', data.usuario);
+      window.location.href = 'bienvenido.html';
+    } catch (error) {
+      errorMsg.textContent = error.message;
+      errorMsg.style.display = 'block';
+    }
+  }
+</script>
+
     </div>
   </div>
 </body>
