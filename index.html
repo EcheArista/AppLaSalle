@@ -17,36 +17,8 @@
   <p id="error" style="color: red; display: none;"></p>
 </form>
 
-<script>
-  async function iniciarSesion(event) {
-    event.preventDefault();
-
-    const usuario = document.getElementById('usuario').value;
-    const contraseña = document.getElementById('contraseña').value;
-    const errorMsg = document.getElementById('error');
-
-    try {
-      const response = await fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ usuario, contraseña })
-      });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.mensaje || 'Error al iniciar sesión');
-      }
-
-      const data = await response.json();
-      localStorage.setItem('usuario', data.usuario);
-      window.location.href = 'bienvenido.html';
-    } catch (error) {
-      errorMsg.textContent = error.message;
-      errorMsg.style.display = 'block';
-    }
-  }
+<script src="login.js">
+ 
 </script>
 
     </div>
