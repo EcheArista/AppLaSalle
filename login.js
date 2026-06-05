@@ -17,6 +17,7 @@ async function login(event) {
   const data = await res.json();
 
   if (data.success) {
+    localStorage.setItem("usuario", usuario);
     window.location.href = "bienvenido.html";
   } else {
     document.getElementById("error").textContent =
