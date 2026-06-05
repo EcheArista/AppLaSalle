@@ -1,4 +1,4 @@
-const API_URL = "http://desmadre.serveminecraft.net:3000";
+const API_URL = "https://backend-inicial-36dt.onrender.com";
 
 async function login() {
   const usuario = document.getElementById("usuario").value;
