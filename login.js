@@ -14,6 +14,9 @@ async function login() {
 
   const data = await res.json();
 
+  console.log("Status:", res.status);
+  console.log("Respuesta:", data);
+
   if (data.success) {
     window.location.href = "bienvenido.html";
   } else {
