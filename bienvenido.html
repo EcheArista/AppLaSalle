@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenido</title>
+
   <style>
     body {
       background-color: #001f5c;
@@ -12,17 +13,47 @@
       text-align: center;
       padding-top: 100px;
     }
+
     h1 {
       font-size: 2.5rem;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1 id="saludo">Hola usuario</h1>
+
+  <h1 id="saludo"></h1>
+
+  <button onclick="cerrarSesion()">
+    Cerrar sesión
+  </button>
 
   <script>
-    const nombre = localStorage.getItem("usuario") || "usuario";
-    document.getElementById("saludo").textContent = "Hola " + nombre;
+    const usuario = localStorage.getItem("usuario");
+
+    // Si no hay usuario guardado, regresar al login
+    if (!usuario) {
+      window.location.href = "index.html";
+    }
+
+    document.getElementById("saludo").textContent =
+      "Bienvenido, " + usuario;
+
+    function cerrarSesion() {
+      localStorage.removeItem("usuario");
+      window.location.href = "index.html";
+    }
   </script>
+
+</body>
+</html>
 </body>
 </html>
