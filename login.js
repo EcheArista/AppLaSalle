@@ -1,6 +1,8 @@
 const API_URL = "https://backend-inicial-36dt.onrender.com";
 
-async function login() {
+async function login(event) {
+  event.preventDefault();
+
   const usuario = document.getElementById("usuario").value;
   const password = document.getElementById("password").value;
 
@@ -14,12 +16,11 @@ async function login() {
 
   const data = await res.json();
 
-  console.log("Status:", res.status);
-  console.log("Respuesta:", data);
-
   if (data.success) {
     window.location.href = "bienvenido.html";
   } else {
-    alert("Usuario o contraseña incorrectos");
+    document.getElementById("error").textContent =
+      "Usuario o contraseña incorrectos";
+    document.getElementById("error").style.display = "block";
   }
 }
