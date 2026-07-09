@@ -88,8 +88,8 @@ node index.js
 
 ```json
 {
-  "usuario": "eddie",
-  "contraseña": "2404"
+  "usuario": "nombre",
+  "contraseña": "24043395"
 }
 ```
 
@@ -98,7 +98,7 @@ node index.js
 ```json
 {
   "mensaje": "Acceso concedido",
-  "usuario": "eddie"
+  "usuario": "nombre"
 }
 ```
 
