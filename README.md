@@ -1,8 +1,8 @@
-# Sistema Web de Autenticación — Universidad La Salle Oaxaca
+# Sistema Xilora
 
-Aplicación web de autenticación de usuarios desarrollada como base para la integración de futuros procesos académicos. El proyecto utiliza una arquitectura cliente-servidor con un frontend publicado en GitHub Pages, un backend desarrollado con Node.js y Express desplegado en Render, y una base de datos MariaDB alojada en una Raspberry Pi.
+Sistema Xilora autentica usuarios y sirve de base para integrar futuros módulos de gestión. El proyecto utiliza una arquitectura cliente-servidor con un frontend publicado en GitHub Pages, un backend desarrollado con Node.js y Express desplegado en Render, y una base de datos MariaDB alojada en una Raspberry Pi.
 
-## Arquitectura del sistema
+## Arquitectura de Sistema Xilora
 
 ```text
 ┌─────────────────────────┐
@@ -75,7 +75,7 @@ proyecto/
 ├── login.js         # Lógica de autenticación
 ├── bienvenido.html  # Página posterior al inicio de sesión
 ├── style.css        # Estilos de la interfaz
-├── Logo.jpg         # Imagen institucional
+├── Logo.jpg         # Imagen de la interfaz
 ├── server.js        # Servidor Node.js y API REST
 ├── package.json     # Dependencias y configuración
 ├── package-lock.json
@@ -139,7 +139,7 @@ El backend utiliza consultas SQL parametrizadas para evitar que los valores reci
 
 **Método:** `GET`
 
-Este endpoint consulta los registros de la tabla `users`. Debe protegerse o limitarse antes de utilizarlo con información académica real.
+Este endpoint consulta los registros de la tabla `users`. Debe protegerse o limitarse antes de utilizarlo con datos reales de usuarios.
 
 ### Endpoint raíz
 
@@ -248,9 +248,9 @@ MariaDB se ejecuta en la Raspberry Pi y recibe las conexiones del backend a trav
 
 ## Seguridad y consideraciones
 
-Este proyecto se encuentra en una etapa inicial y funciona como base para el desarrollo de procesos académicos.
+Sistema Xilora se encuentra en una etapa inicial de autenticación básica.
 
-Antes de utilizarlo con información institucional real, es importante implementar las siguientes medidas:
+Antes de utilizarlo con datos reales de la organización, es importante implementar las siguientes medidas:
 
 - Almacenar contraseñas mediante hashes seguros, por ejemplo, Argon2id o bcrypt.
 - Implementar sesiones seguras o tokens de autenticación y validar el acceso en el backend.
@@ -261,13 +261,13 @@ Antes de utilizarlo con información institucional real, es importante implement
 - Proteger los endpoints y limitar las solicitudes de autenticación.
 - No devolver información sensible ni errores internos de la base de datos al cliente.
 - Implementar respaldos y procedimientos de recuperación.
-- Proteger los datos personales y académicos conforme a las políticas institucionales aplicables.
+- Proteger los datos personales conforme a las políticas de protección de datos aplicables.
 
 La redirección a `bienvenido.html` y la comprobación de `localStorage` son controles del lado del cliente; por sí solos no impiden que una persona acceda directamente a la página.
 
 ## Posibles ampliaciones
 
-La arquitectura permite desarrollar nuevos módulos reutilizando el backend y la conexión a MariaDB, por ejemplo:
+Los siguientes ejemplos ilustran cómo reutilizar el backend y la conexión a MariaDB en un entorno educativo:
 
 - Consulta de información de alumnos.
 - Gestión de horarios.
@@ -289,7 +289,7 @@ Cada módulo deberá incorporar sus propias rutas de API, validaciones, permisos
 - [x] Visualización del identificador del usuario.
 - [ ] Autenticación mediante sesiones seguras.
 - [ ] Gestión de roles y permisos.
-- [ ] Implementación de módulos académicos.
+- [ ] Implementación de módulos de gestión.
 - [ ] Endurecimiento de seguridad y respaldos automatizados.
 
 ## Licencia
@@ -298,6 +298,5 @@ La licencia del proyecto está pendiente de definir. No se concede una licencia 
 
 ---
 
-**Proyecto:** Sistema Web de Procesos Académicos  
-**Institución:** Universidad La Salle Oaxaca  
-**Propósito:** Base tecnológica para integrar servicios y procesos académicos mediante una aplicación web.
+**Proyecto:** Sistema Xilora  
+**Propósito:** Autenticar usuarios y facilitar la integración de módulos de gestión en una aplicación web.
